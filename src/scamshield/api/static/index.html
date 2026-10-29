@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ScamShield — WhatsApp Scam Detection</title>
+<style>
+:root{
+  --bg:#f4f6f8; --panel:#ffffff; --panel-2:#f8fafc; --text:#121a24; --muted:#5d6b7c;
+  --line:#e2e8f0; --accent:#0b7d63; --accent-soft:#e6f4f0;
+  --safe:#1a8f5f; --susp:#c98a00; --likely:#e06a1b; --danger:#d13b3b;
+  --shadow:0 1px 3px rgba(15,23,42,.07),0 8px 24px rgba(15,23,42,.06);
+  --radius:14px;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0e1418; --panel:#161f26; --panel-2:#1c262e; --text:#e8eef3; --muted:#93a4b3;
+    --line:#27343d; --accent:#1fa37f; --accent-soft:#122b25;
+    --safe:#35c48a; --susp:#e0ac3a; --likely:#f08a45; --danger:#f2635f;
+    --shadow:0 1px 3px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.3);
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,"Helvetica Neue",sans-serif;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 20px 72px}
+header{display:flex;align-items:center;gap:13px;margin-bottom:6px}
+.logo{width:40px;height:40px;border-radius:11px;background:var(--accent);display:grid;place-items:center;flex:none}
+.logo svg{width:22px;height:22px;fill:#fff}
+h1{font-size:21px;margin:0;letter-spacing:-.02em}
+.sub{color:var(--muted);font-size:13.5px;margin:0}
+.tag{margin-left:auto;font-size:11.5px;color:var(--muted);border:1px solid var(--line);
+  padding:4px 10px;border-radius:999px;white-space:nowrap}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:20px;margin-top:18px}
+.tabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
+.tab{padding:8px 15px;border-radius:9px;border:1px solid var(--line);background:var(--panel-2);
+  color:var(--muted);cursor:pointer;font-size:13.5px;font-weight:600;transition:.15s}
+.tab:hover{color:var(--text)}
+.tab.on{background:var(--accent);border-color:var(--accent);color:#fff}
+textarea{width:100%;min-height:190px;padding:13px;border-radius:11px;border:1px solid var(--line);
+  background:var(--panel-2);color:var(--text);font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;resize:vertical}
+textarea:focus{outline:2px solid var(--accent);outline-offset:-1px}
+.row{display:flex;gap:10px;align-items:center;margin-top:13px;flex-wrap:wrap}
+button{font:inherit;font-weight:600;font-size:13.5px;padding:10px 18px;border-radius:9px;border:1px solid var(--line);
+  background:var(--panel-2);color:var(--text);cursor:pointer;transition:.15s}
+button:hover:not(:disabled){border-color:var(--accent)}
+button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+button.primary:hover:not(:disabled){filter:brightness(1.08)}
+button:disabled{opacity:.5;cursor:not-allowed}
+.hint{color:var(--muted);font-size:12.5px;margin:9px 0 0}
+.drop{border:2px dashed var(--line);border-radius:12px;padding:34px 20px;text-align:center;
+  color:var(--muted);cursor:pointer;transition:.15s;background:var(--panel-2)}
+.drop.over{border-color:var(--accent);background:var(--accent-soft);color:var(--text)}
+.hidden{display:none!important}
+
+.summary{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.gauge{position:relative;width:132px;height:132px;flex:none}
+.gauge svg{transform:rotate(-90deg)}
+.gauge .val{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+.gauge .num{font-size:29px;font-weight:700;letter-spacing:-.03em;line-height:1}
+.gauge .lbl{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.09em;margin-top:3px}
+.sum-body{flex:1;min-width:260px}
+.verdict{font-size:20px;font-weight:700;letter-spacing:-.02em;margin:0 0 5px}
+.advice{color:var(--muted);margin:0 0 12px;font-size:14px}
+.chips{display:flex;gap:7px;flex-wrap:wrap}
+.chip{font-size:11.5px;padding:4px 10px;border-radius:999px;background:var(--panel-2);
+  border:1px solid var(--line);color:var(--muted)}
+.chip strong{color:var(--text)}
+.chip.verified{border-color:var(--safe);color:var(--safe)}
+.chip.verified strong{color:var(--safe)}
+.chip.unverified{border-color:var(--susp);color:var(--susp)}
+.chip.unverified strong{color:var(--susp)}
+.safe{color:var(--safe)} .suspicious{color:var(--susp)}
+.likely_scam{color:var(--likely)} .dangerous{color:var(--danger)}
+.bg-safe{background:var(--safe)} .bg-suspicious{background:var(--susp)}
+.bg-likely_scam{background:var(--likely)} .bg-dangerous{background:var(--danger)}
+
+h2{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);
+  margin:0 0 13px;font-weight:700}
+.sender{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:11px;background:var(--panel-2)}
+.sender-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.sender-name{font-weight:700;font-size:14.5px}
+.pill{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
+  padding:3px 9px;border-radius:999px;color:#fff}
+.bar{height:6px;border-radius:99px;background:var(--line);overflow:hidden;margin:11px 0 9px}
+.bar>i{display:block;height:100%;border-radius:99px}
+.reasons{margin:8px 0 0;padding-left:17px;color:var(--muted);font-size:13px}
+.reasons li{margin:3px 0}
+
+.msg{border-left:3px solid var(--line);padding:11px 0 11px 14px;margin-bottom:11px}
+.msg-head{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:5px}
+.msg-score{font-weight:700;font-size:13.5px;font-variant-numeric:tabular-nums}
+.msg-from{font-size:12.5px;color:var(--muted)}
+.msg-cat{font-size:11px;padding:2px 8px;border-radius:999px;background:var(--accent-soft);
+  color:var(--accent);font-weight:600}
+.msg-text{font-size:13.5px;white-space:pre-wrap;word-break:break-word}
+.sigs{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.sig{font-size:11px;padding:3px 9px;border-radius:7px;background:var(--panel-2);
+  border:1px solid var(--line);color:var(--muted)}
+.sig b{color:var(--text);font-weight:600}
+.links{margin-top:10px;display:flex;flex-direction:column;gap:7px}
+.link{border:1px solid var(--line);border-radius:9px;padding:9px 11px;background:var(--panel-2)}
+.link.dangerous{border-color:var(--danger)} .link.likely_scam{border-color:var(--likely)}
+.link.suspicious{border-color:var(--susp)}
+.link-head{display:flex;align-items:center;gap:8px}
+.link-dot{width:7px;height:7px;border-radius:50%;flex:none}
+.link-url{font:12px ui-monospace,SFMono-Regular,Menlo,monospace;word-break:break-all;flex:1}
+.link-risk{font-weight:700;font-size:12px;font-variant-numeric:tabular-nums}
+.link-why{font-size:11.5px;color:var(--muted);margin-top:5px;line-height:1.5}
+.link-why b{color:var(--text)}
+.link-note{font-size:11px;color:var(--muted);font-style:italic}
+
+.spark{display:flex;align-items:flex-end;gap:2px;height:64px;padding:10px 0}
+.spark>i{flex:1;min-width:2px;border-radius:2px 2px 0 0;opacity:.9}
+.err{background:#fdecec;border:1px solid #f5c2c2;color:#a52020;padding:12px 14px;
+  border-radius:10px;font-size:13.5px}
+@media (prefers-color-scheme:dark){.err{background:#2b1717;border-color:#5a2a2a;color:#f3a9a9}}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.35);
+  border-top-color:#fff;border-radius:50%;animation:sp .7s linear infinite;vertical-align:-2px;margin-right:7px}
+@keyframes sp{to{transform:rotate(360deg)}}
+footer{margin-top:26px;color:var(--muted);font-size:12px;text-align:center;line-height:1.7}
+code{background:var(--panel-2);padding:1px 6px;border-radius:5px;font-size:12px;border:1px solid var(--line)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo"><svg viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V5l-9-4zm0 6.2a2.3 2.3 0 0 1 2.3 2.3c0 .9-.5 1.7-1.3 2.1v2.1a1 1 0 0 1-2 0v-2.1a2.3 2.3 0 0 1 1-4.4z"/></svg></div>
+    <div>
+      <h1>ScamShield</h1>
+      <p class="sub">Scam detection for WhatsApp conversations</p>
+    </div>
+    <span class="tag" id="modelTag">loading model…</span>
+  </header>
+
+  <div class="card">
+    <div class="tabs">
+      <div class="tab on" data-mode="paste">Paste chat</div>
+      <div class="tab" data-mode="upload">Upload export</div>
+      <div class="tab" data-mode="single">Check one message</div>
+    </div>
+
+    <div id="pane-paste">
+      <textarea id="chatInput" placeholder="Paste an exported WhatsApp chat here, or one message per line.
+
+12/03/2024, 10:46 pm - +91 98765 43210: Your KYC has expired
+12/03/2024, 10:47 pm - Priya: who is this?"></textarea>
+      <div class="row">
+        <button class="primary" id="analyzeChat">Analyse conversation</button>
+        <button id="loadSample">Load sample chat</button>
+        <button id="clearChat">Clear</button>
+      </div>
+      <p class="hint">In WhatsApp: open the chat → ⋮ → More → Export chat → Without media.</p>
+    </div>
+
+    <div id="pane-upload" class="hidden">
+      <div class="drop" id="drop">
+        <strong>Drop your exported <code>.txt</code> here</strong><br>
+        <span style="font-size:13px">or click to choose a file — max 8 MB</span>
+      </div>
+      <input type="file" id="file" accept=".txt,text/plain" class="hidden">
+    </div>
+
+    <div id="pane-single" class="hidden">
+      <textarea id="msgInput" style="min-height:110px" placeholder="Paste a single message to check…"></textarea>
+      <div class="row"><button class="primary" id="analyzeMsg">Check message</button></div>
+    </div>
+  </div>
+
+  <div id="error" class="card err hidden"></div>
+  <div id="results"></div>
+
+  <footer>
+    Analysis runs locally against your own server — no message ever leaves this machine.<br>
+    ScamShield assists judgement; it does not replace it. Always verify through a channel you trust.
+  </footer>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const api = (p,o) => fetch(p,o).then(async r => {
+  const d = await r.json().catch(()=>({detail:r.statusText}));
+  if(!r.ok) throw new Error(d.detail || 'Request failed');
+  return d;
+});
+const esc = s => String(s??'').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const pct = n => Math.round(n*100);
+const nice = v => ({safe:'Looks safe',suspicious:'Suspicious',likely_scam:'Likely scam',dangerous:'Dangerous'}[v]||v);
+
+/* tabs */
+document.querySelectorAll('.tab').forEach(t => t.onclick = () => {
+  document.querySelectorAll('.tab').forEach(x => x.classList.toggle('on', x===t));
+  ['paste','upload','single'].forEach(m => $('#pane-'+m).classList.toggle('hidden', m!==t.dataset.mode));
+  hideError();
+});
+
+function showError(m){ $('#error').textContent = m; $('#error').classList.remove('hidden'); }
+function hideError(){ $('#error').classList.add('hidden'); }
+function busy(btn, on, label){
+  if(!btn) return;
+  btn.disabled = on;
+  btn.innerHTML = on ? '<span class="spin"></span>Analysing…' : label;
+}
+
+/* ---------- rendering ---------- */
+function gauge(score, verdict){
+  const r=54, c=2*Math.PI*r, off=c*(1-score);
+  return `<div class="gauge">
+    <svg width="132" height="132" viewBox="0 0 132 132">
+      <circle cx="66" cy="66" r="${r}" fill="none" stroke="var(--line)" stroke-width="11"/>
+      <circle cx="66" cy="66" r="${r}" fill="none" stroke="currentColor" stroke-width="11"
+        stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${off}"
+        class="${verdict}" style="transition:stroke-dashoffset .6s ease"/>
+    </svg>
+    <div class="val"><div><div class="num ${verdict}">${pct(score)}%</div>
+    <div class="lbl">risk</div></div></div></div>`;
+}
+
+function links(items){
+  if(!items || !items.length) return '';
+  return `<div class="links">${items.map(l=>{
+    const cls = l.verdict==='dangerous'?'dangerous':l.verdict==='suspicious'?'likely_scam':
+                l.verdict==='caution'?'suspicious':'safe';
+    const why = (l.findings||[]).slice(0,2).map(f=>esc(f.label)+(f.detail?` — ${esc(f.detail)}`:'')).join('<br>');
+    return `<div class="link ${cls}">
+      <div class="link-head">
+        <span class="link-dot bg-${cls}"></span>
+        <span class="link-url">${esc(l.url.length>72?l.url.slice(0,72)+'…':l.url)}</span>
+        <span class="link-risk ${cls}">${pct(l.risk_score)}%</span>
+      </div>
+      ${why?`<div class="link-why">${why}</div>`:''}
+      ${l.registrable_domain?`<div class="link-why">Real destination: <b>${esc(l.registrable_domain)}</b></div>`:''}
+    </div>`;}).join('')}
+    <div class="link-note">Links are checked without opening them. Nothing was visited.</div>
+  </div>`;
+}
+
+function signals(sigs){
+  if(!sigs || !sigs.length) return '';
+  return `<div class="sigs">${sigs.map(s=>`<div class="sig"><b>${esc(s.label)}</b>${
+    s.evidence && s.evidence.length ? ' · ' + esc(s.evidence.slice(0,2).join(', ')) : ''}</div>`).join('')}</div>`;
+}
+
+function messageCard(m, showSender){
+  return `<div class="msg" style="border-left-color:var(--${m.verdict==='safe'?'line':m.verdict==='suspicious'?'susp':m.verdict==='likely_scam'?'likely':'danger'})">
+    <div class="msg-head">
+      <span class="msg-score ${m.verdict}">${pct(m.risk_score)}%</span>
+      ${showSender && m.sender ? `<span class="msg-from">${esc(m.sender)}</span>`:''}
+      ${m.category_label ? `<span class="msg-cat">${esc(m.category_label)}</span>`:''}
+    </div>
+    <div class="msg-text">${esc(m.text)}</div>
+    ${links(m.links)}
+    ${signals(m.signals)}
+  </div>`;
+}
+
+function renderSingle(r){
+  $('#results').innerHTML = `<div class="card">
+    <div class="summary">
+      ${gauge(r.risk_score, r.verdict)}
+      <div class="sum-body">
+        <p class="verdict ${r.verdict}">${nice(r.verdict)}</p>
+        <p class="advice">${esc(r.advice)}</p>
+        <div class="chips">
+          ${r.category_label?`<span class="chip">Pattern <strong>${esc(r.category_label)}</strong></span>`:''}
+          <span class="chip">Model <strong>${pct(r.ml_score)}%</strong></span>
+          <span class="chip">Rules <strong>${pct(r.rule_score)}%</strong></span>
+          ${r.low_information?`<span class="chip">Too short to judge confidently</span>`:''}
+        </div>
+      </div>
+    </div>
+    ${r.links && r.links.length ? `<div style="margin-top:18px"><h2>Links in this message</h2>${links(r.links)}</div>`:''}
+    ${r.signals && r.signals.length ? `<div style="margin-top:18px"><h2>Why</h2>${signals(r.signals)}</div>`:''}
+  </div>`;
+}
+
+function renderChat(d){
+  const s = d.summary;
+  const spark = d.timeline.map(t=>{
+    const v = t.risk>=0.813?'dangerous':t.risk>=0.275?'likely_scam':t.risk>=0.151?'suspicious':'safe';
+    return `<i class="bg-${v}" style="height:${Math.max(t.risk*100,4)}%" title="${pct(t.risk)}% — ${esc(t.sender||'')}"></i>`;
+  }).join('');
+
+  const senders = d.senders.map(x=>`
+    <div class="sender">
+      <div class="sender-top">
+        <span class="sender-name">${esc(x.sender)}</span>
+        <span class="pill bg-${x.verdict}">${nice(x.verdict)}</span>
+        ${x.is_unknown_number?'<span class="chip">unsaved number</span>':''}
+        ${x.escalation_detected?'<span class="chip">escalating</span>':''}
+        <span style="margin-left:auto;font-weight:700" class="${x.verdict}">${pct(x.risk_score)}%</span>
+      </div>
+      <div class="bar"><i class="bg-${x.verdict}" style="width:${pct(x.risk_score)}%"></i></div>
+      <div class="chips">
+        <span class="chip"><strong>${x.flagged_count}</strong> of ${x.message_count} flagged</span>
+        <span class="chip">peak <strong>${pct(x.max_message_risk)}%</strong></span>
+        ${x.claimed_brands && x.claimed_brands.length
+          ? `<span class="chip unverified">claims to be <strong>${esc(x.claimed_brands.join(', '))}</strong></span>` : ''}
+        ${x.top_categories.map(c=>`<span class="chip">${esc(c.label)} <strong>×${c.count}</strong></span>`).join('')}
+      </div>
+      ${x.reasons.length?`<ul class="reasons">${x.reasons.map(r=>`<li>${esc(r)}</li>`).join('')}</ul>`:''}
+    </div>`).join('');
+
+  const flagged = d.flagged_messages.length
+    ? d.flagged_messages.map(m=>messageCard(m,true)).join('')
+    : `<p class="hint">Nothing in this conversation crossed the warning threshold.</p>`;
+
+  $('#results').innerHTML = `
+    <div class="card">
+      <div class="summary">
+        ${gauge(s.risk_score, s.verdict)}
+        <div class="sum-body">
+          <p class="verdict ${s.verdict}">${nice(s.verdict)}</p>
+          <p class="advice">${esc(s.advice)}</p>
+          <div class="chips">
+            <span class="chip"><strong>${s.message_count}</strong> messages</span>
+            <span class="chip"><strong>${s.flagged_count}</strong> flagged</span>
+            <span class="chip"><strong>${s.participants.length}</strong> participants</span>
+            ${s.account_type && s.account_type!=='unknown'
+              ? `<span class="chip ${s.account_type==='business_official'?'verified':'unverified'}">${
+                  s.account_type==='business_official'?'✓ ':'⚠ '}<strong>${esc(s.account_label)}</strong></span>` : ''}
+            ${s.primary_category?`<span class="chip">Pattern <strong>${esc(s.primary_category.label)}</strong></span>`:''}
+            ${s.filename?`<span class="chip">${esc(s.filename)}</span>`:''}
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:14px"><h2>Risk across the conversation</h2><div class="spark">${spark}</div></div>
+    </div>
+    <div class="card"><h2>Participants</h2>${senders}</div>
+    <div class="card"><h2>Flagged messages</h2>${flagged}</div>`;
+}
+
+/* ---------- actions ---------- */
+$('#analyzeChat').onclick = async () => {
+  const content = $('#chatInput').value.trim();
+  if(!content) return showError('Paste a conversation first.');
+  hideError(); busy($('#analyzeChat'), true);
+  try { renderChat(await api('/api/analyze/chat',{method:'POST',
+        headers:{'Content-Type':'application/json'},body:JSON.stringify({content})})); }
+  catch(e){ showError(e.message); }
+  finally { busy($('#analyzeChat'), false, 'Analyse conversation'); }
+};
+
+$('#analyzeMsg').onclick = async () => {
+  const text = $('#msgInput').value.trim();
+  if(!text) return showError('Enter a message first.');
+  hideError(); busy($('#analyzeMsg'), true);
+  try { renderSingle(await api('/api/analyze/message',{method:'POST',
+        headers:{'Content-Type':'application/json'},body:JSON.stringify({text})})); }
+  catch(e){ showError(e.message); }
+  finally { busy($('#analyzeMsg'), false, 'Check message'); }
+};
+
+$('#loadSample').onclick = async () => {
+  try { $('#chatInput').value = (await api('/api/sample')).content; hideError(); }
+  catch(e){ showError(e.message); }
+};
+$('#clearChat').onclick = () => { $('#chatInput').value=''; $('#results').innerHTML=''; hideError(); };
+
+const drop = $('#drop'), fileInput = $('#file');
+drop.onclick = () => fileInput.click();
+drop.ondragover = e => { e.preventDefault(); drop.classList.add('over'); };
+drop.ondragleave = () => drop.classList.remove('over');
+drop.ondrop = e => { e.preventDefault(); drop.classList.remove('over');
+  if(e.dataTransfer.files[0]) upload(e.dataTransfer.files[0]); };
+fileInput.onchange = () => fileInput.files[0] && upload(fileInput.files[0]);
+
+async function upload(f){
+  hideError();
+  drop.innerHTML = '<span class="spin" style="border-color:var(--line);border-top-color:var(--accent)"></span>Analysing ' + esc(f.name) + '…';
+  const fd = new FormData(); fd.append('file', f);
+  try { renderChat(await api('/api/analyze/upload',{method:'POST',body:fd})); }
+  catch(e){ showError(e.message); }
+  finally { drop.innerHTML = '<strong>Drop your exported <code>.txt</code> here</strong><br><span style="font-size:13px">or click to choose a file — max 8 MB</span>'; }
+}
+
+api('/api/model').then(m=>{
+  const t = m.holdout_test;
+  $('#modelTag').textContent = `${m.model} · ${m.corpus_size.toLocaleString()} samples`
+    + (t ? ` · held-out F1 ${t.f1}` : '');
+}).catch(()=>{ $('#modelTag').textContent='model not trained — run python -m ml.train'; });
+</script>
+</body>
+</html>

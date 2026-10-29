@@ -1,0 +1,991 @@
+# Scam signal lexicons and scoring weights. Editing this file changes
+# detection behaviour without touching code; retrain afterwards.
+signals:
+  urgency:
+    label: Artificial time pressure
+    weight: 0.55
+    feature: n_urgency
+    terms:
+    - aaj hi
+    - aakhri mauka
+    - abhi kare
+    - act now
+    - asap
+    - before it lapses
+    - before midnight
+    - closing soon
+    - der mat kare
+    - do not delay
+    - don't delay
+    - expires today
+    - expiring soon
+    - final notice
+    - final warning
+    - hurry
+    - immediately
+    - jaldi kare
+    - last chance
+    - last day
+    - limited slots
+    - limited time
+    - only today
+    - quickly
+    - right now
+    - time is running out
+    - turant
+    - urgent
+    - urgently
+    - within 2 hours
+    - within 24 hours
+    - within the hour
+    - जल्दी
+    - तुरंत
+    count_mode: log1p
+  threat:
+    label: Threat of account/legal consequence
+    weight: 0.8
+    feature: n_threat
+    terms:
+    - account has been blocked
+    - account suspended
+    - account will be blocked
+    - arrest procedure
+    - arrest warrant
+    - band ho jayega
+    - blacklisted
+    - block ho jayega
+    - case darj
+    - connection will be disconnected
+    - court notice
+    - digital arrest
+    - disconnect hoga
+    - fine will be imposed
+    - kaat diya jayega
+    - kanooni karyavahi
+    - legal action
+    - penalty
+    - permanently closed
+    - police case
+    - prosecution
+    - returns to sender
+    - service will be stopped
+    - sim will be blocked
+    - will be deactivated
+    - will be suspended
+    - your number will be
+    - बंद हो जाएगा
+    - मामला दर्ज
+    count_mode: log1p
+  prize:
+    label: Unsolicited prize or lottery win
+    weight: 0.85
+    feature: n_prize
+    terms:
+    - 2nd prize
+    - badhai ho
+    - bumper prize
+    - cash award
+    - cash prize
+    - claim your prize
+    - congratulations
+    - free gift
+    - gift voucher
+    - inaam
+    - jackpot
+    - lottery
+    - lucky draw
+    - lucky winner
+    - prize money
+    - reward points expiring
+    - scratch card
+    - selected winner
+    - spin and win
+    - unclaimed refund
+    - you are pre-approved
+    - you are the winner
+    - you have won
+    - you won
+    - इनाम
+    count_mode: log1p
+  credentials:
+    label: Requests OTP / PIN / card credentials
+    weight: 1.0
+    feature: n_credential
+    terms:
+    - 16 digits
+    - 6 digit code
+    - 6-digit
+    - aadhaar number
+    - aadhar number
+    - account number and ifsc
+    - atm pin
+    - banking credentials
+    - card number
+    - code batayein
+    - confirm the 16 digits
+    - credit card details
+    - cvv
+    - cvv number
+    - debit card details
+    - digits on your card
+    - expiry date
+    - internet banking password
+    - last 3 digits
+    - last three digits
+    - login password
+    - mpin
+    - net banking credentials
+    - net banking password
+    - netbanking password
+    - one time password
+    - one-time password
+    - otp
+    - otp bata
+    - otp batao
+    - otp bhejo
+    - pan card number
+    - pin batao
+    - read out
+    - read out the code
+    - registration code
+    - security code
+    - send me the code
+    - share the code
+    - share your code
+    - upi pin
+    - validity date
+    - verification code
+    count_mode: log1p
+  payment:
+    label: Asks for money or payment details
+    weight: 0.8
+    feature: n_money_req
+    terms:
+    - activation fee
+    - advance only
+    - advance payment
+    - advance payment only
+    - amazon gift card
+    - balance on delivery
+    - bank details
+    - bhej do
+    - bhejein
+    - bhejo
+    - bitcoin
+    - clearance fee
+    - convenience fee
+    - crypto wallet
+    - customs duty
+    - delivery charges
+    - deposit secures
+    - documentation charge
+    - file charge
+    - gift card
+    - google pay
+    - gst charges
+    - itunes card
+    - membership fee
+    - no cod
+    - onboarding fee
+    - one-time charge
+    - paise bhej
+    - pay a small amount
+    - pay advance
+    - pay the advance
+    - paytm
+    - phonepe
+    - processing fee
+    - qr code to receive
+    - recharge
+    - refundable deposit
+    - registration fee
+    - scan the qr
+    - scan this qr
+    - security deposit
+    - send money
+    - setup fee
+    - steam card
+    - tax clearance
+    - token amount
+    - transfer kare
+    - transfer the amount
+    - upi id
+    - usdt
+    - western union
+    - wholesale rate
+    - wire transfer
+    - पैसे भेज
+    count_mode: log1p
+  investment:
+    label: Guaranteed-return investment pitch
+    weight: 0.85
+    feature: n_investment
+    terms:
+    - assured returns
+    - binary option
+    - capital is insured
+    - crypto investment
+    - daily profit
+    - double your money
+    - earn daily
+    - forex trading
+    - guaranteed profit
+    - guaranteed return
+    - high returns
+    - insider tip
+    - investment plan
+    - managed portfolio
+    - monthly for two years
+    - multiply your money
+    - mutual fund guaranteed
+    - my mentor
+    - no downside
+    - passive income
+    - per month
+    - ponzi
+    - profit every day
+    - return on investment
+    - risk free
+    - risk-free
+    - roi
+    - signals channel
+    - slots left
+    - stock tips
+    - trading signal
+    - triple your money
+    - vip signals
+    - withdrew
+    count_mode: log1p
+  job_scam:
+    label: Too-good-to-be-true job or task offer
+    weight: 0.75
+    feature: n_job
+    terms:
+    - commission task
+    - daily income
+    - data entry job
+    - earn from home
+    - earn per day
+    - earn per task
+    - first payout
+    - flexible timing
+    - ghar baithe kaam
+    - google review task
+    - higher commissions
+    - hiring urgently
+    - hotel review task
+    - job offer
+    - join our team
+    - kamaye
+    - like and subscribe task
+    - no experience required
+    - no investment
+    - online job
+    - part time job
+    - part time kaam
+    - part-time job
+    - premium tier
+    - prepaid task
+    - product rating
+    - rate 20 items
+    - roz kamaye
+    - salary daily
+    - typing job
+    - unlock the premium
+    - weekly payout
+    - work from home
+    - youtube like task
+    count_mode: log1p
+  impersonation:
+    label: Impersonates a bank/brand/authority
+    weight: 0.7
+    feature: n_impersonation
+    terms:
+    - aadhaar has been linked
+    - aadhaar linked
+    - amazon support
+    - annual audit
+    - apple support
+    - axis bank
+    - bank official
+    - blue dart
+    - blue tick
+    - case no
+    - cbi
+    - clearing officer
+    - compliance team
+    - courier
+    - customer care
+    - customs department
+    - cyber cell
+    - cyber crime
+    - dhl
+    - electricity bill
+    - electricity connection
+    - fedex
+    - flipkart support
+    - fraud prevention team
+    - gas subsidy
+    - google security
+    - government scheme
+    - hdfc
+    - helpline number
+    - icici
+    - income tax department
+    - india post
+    - kyc expired
+    - kyc update
+    - kyc verification
+    - meter will be
+    - microsoft support
+    - netflix billing
+    - paytm support
+    - pm kisan
+    - rbi
+    - reserve bank
+    - sbi
+    - update your kyc
+    - verified blue tick
+    - whatsapp support
+    - your kyc has expired
+    - your parcel
+    count_mode: log1p
+  tech_support:
+    label: Remote-access / fake support request
+    weight: 0.85
+    feature: n_tech_support
+    terms:
+    - anydesk
+    - download this apk
+    - enable accessibility
+    - install this app
+    - malware detected
+    - quick support
+    - refund department
+    - remote access
+    - screen share
+    - teamviewer
+    - technical support
+    - virus detected
+    - your computer has been
+    - your device is infected
+    count_mode: log1p
+  romance:
+    label: Romance / trust-building approach
+    weight: 0.45
+    feature: n_romance
+    terms:
+    - darling
+    - i am serious about you
+    - i love you
+    - inheritance
+    - lonely
+    - my dear
+    - my late father
+    - my late husband
+    - our future together
+    - send me your photo
+    - sweetheart
+    - trust you
+    - video call me
+    - want to be your friend
+    - widow
+    - you are beautiful
+    count_mode: log1p
+  off_platform:
+    label: Pushes you to another platform or group
+    weight: 0.5
+    feature: n_off_platform
+    terms:
+    - add me on
+    - chat with me privately
+    - click the link to join
+    - contact me on telegram
+    - dm me
+    - inbox me
+    - join our whatsapp group
+    - join this group
+    - join this telegram
+    - message me on telegram
+    - t.me/
+    - wa.me/
+    count_mode: log1p
+  secrecy:
+    label: Asks you to keep it secret
+    weight: 0.9
+    feature: n_secrecy
+    terms:
+    - bank will not know
+    - between us only
+    - call mat karna
+    - delete this chat
+    - discreetly
+    - do not discuss this with your family
+    - do not ring
+    - do not share with bank
+    - do not tell anyone
+    - don't inform your family
+    - don't ring
+    - don't tell anyone
+    - don't tell your family
+    - investigation is confidential
+    - keep it secret
+    - keep this confidential
+    - kisi ko mat batana
+    - reply privately
+    - stay on this call
+    count_mode: log1p
+  authority:
+    label: Claims authority to pressure you
+    weight: 0.55
+    feature: n_authority
+    terms:
+    - as per government
+    - as per rbi guidelines
+    - compliance
+    - i am your senior
+    - legal department
+    - mandatory
+    - official notice
+    - this is the ceo
+    - this is your boss
+    - this is your manager
+    count_mode: log1p
+  generic_salutation:
+    label: Generic salutation, no real name
+    weight: 0.3
+    feature: n_generic_salutation
+    terms:
+    - dear account holder
+    - dear customer
+    - dear member
+    - dear sir/madam
+    - dear subscriber
+    - dear user
+    - hello dear
+    - hi dear
+    count_mode: bool
+  course_scam:
+    label: Course or mentorship promising outsized earnings
+    weight: 0.7
+    feature: n_course_scam
+    count_mode: log1p
+    terms:
+    - 1 lakh per month
+    - 6 figure
+    - 9 to 5
+    - admission closing
+    - affiliate mastery
+    - batch closes
+    - batch closing
+    - become your own boss
+    - course fees
+    - crypto course
+    - dm me for details
+    - dropshipping
+    - early bird price
+    - earn from day one
+    - earn while you learn
+    - enrol now
+    - enroll now
+    - escape the 9 to 5
+    - fee increases
+    - fees will increase
+    - financial freedom
+    - forex course
+    - free demo class
+    - free webinar
+    - guaranteed placement
+    - join my batch
+    - lakh a month
+    - last batch
+    - learn to earn
+    - lifetime access
+    - limited seats
+    - masterclass
+    - mentorship batch
+    - mentorship program
+    - money back guarantee
+    - my mentorship
+    - my student earned
+    - my students earn
+    - no degree needed
+    - no experience needed
+    - only 5 seats
+    - passive income course
+    - quit your job
+    - recorded course
+    - recorded sessions
+    - roadmap to
+    - seats filling
+    - six figure
+    - students are earning
+    - success stories
+    - success story
+    - trading course
+  extortion:
+    label: Threatens exposure or demands a ransom
+    weight: 0.95
+    feature: n_extortion
+    count_mode: log1p
+    terms:
+    - 48 hours to pay
+    - arrange the cash
+    - bitcoin wallet
+    - btc wallet
+    - compromising video
+    - data is encrypted
+    - decrypt your files
+    - decryption key
+    - delete everything
+    - delete the video
+    - do not call the police
+    - do not contact the police
+    - do not tell anyone or
+    - expose you
+    - files are encrypted
+    - files have been encrypted
+    - final warning before
+    - i control your
+    - i hacked your
+    - i have access to your
+    - i have recorded
+    - i have your photos
+    - i have your video
+    - i recorded you
+    - installed a trojan
+    - intimate photos
+    - keep it private
+    - leak your
+    - monero
+    - no police
+    - pay in bitcoin
+    - pay in crypto
+    - pay the ransom
+    - post it online
+    - private video
+    - ransom
+    - recorded you through
+    - recover your files
+    - ruin your reputation
+    - screen recording
+    - send it to all your contacts
+    - send to your contacts
+    - share it with your friends
+    - this is your last warning
+    - usdt wallet
+    - we have kidnapped
+    - we have your daughter
+    - we have your son
+    - webcam footage
+    - within 24 hours or
+    - within 48 hours or
+    - your account has been hacked
+    - your child is with us
+    - your device is compromised
+    - your family will see
+    - your webcam
+  vouched_link:
+    label: Casual personal vouching for a link
+    weight: 0.3
+    feature: n_vouched_link
+    count_mode: log1p
+    terms:
+    - check this
+    - check this out
+    - download this and see
+    - forward this to
+    - have a look at this
+    - help me win
+    - i already tried it
+    - i earned with this
+    - i found your photo
+    - i made money with this
+    - install this app
+    - is this you
+    - is this you in this
+    - it worked for me
+    - it's me
+    - its me
+    - just one click
+    - look at this
+    - look what i found
+    - look who died
+    - new number check
+    - please vote
+    - share to unlock
+    - share with 10 friends
+    - shocking video
+    - someone posted about you
+    - takes 2 seconds
+    - takes only a minute
+    - this app paid me
+    - this is my new
+    - trust me on this
+    - try this app
+    - vote for me
+    - vote for my
+    - you appear in this
+    - you have to see this
+    - you should see this
+    - you wont believe
+    - your picture is here
+context:
+  narrative:
+  - beware of
+  - call aaya
+  - clearly a scam
+  - deleted it
+  - do not click it
+  - don't click it
+  - fraud hai
+  - i am not comfortable sharing
+  - i blocked
+  - i deleted
+  - i disconnected
+  - i got a call
+  - i got a message
+  - i ignored
+  - i received a message
+  - is fake
+  - is that real
+  - it's a scam
+  - its a scam
+  - let's do it on the official
+  - maine block
+  - message aaya
+  - must be fake
+  - not comfortable sharing
+  - obviously fake
+  - scam hai
+  - someone called
+  - someone messaged
+  - someone tried
+  - sounds like a scam
+  - turned out to be
+  - was fake
+  - watch out for
+  safe_transactional:
+  - '- indigo'
+  - -axis bank
+  - -hdfc
+  - -icici
+  - -sbi
+  - auto-debited
+  - available balance
+  - avl bal
+  - 'bal:'
+  - calendar invite
+  - do not share this with anyone
+  - has been delivered
+  - if this was not you
+  - if this wasn't you
+  - in the amazon app
+  - never share it
+  - never share this
+  - not you? call
+  - not you? report
+  - out for delivery
+  - reply r to reschedule
+  - reply stop to
+  - report at
+  - track in app
+  - track your package
+  - valid for
+  - valid for 10 minutes
+  - valid for 5 minutes
+  - view at
+domains:
+  shorteners:
+  - bit.ly
+  - bl.ink
+  - buff.ly
+  - clck.ru
+  - cutt.ly
+  - goo.gl
+  - is.gd
+  - linktr.ee
+  - ow.ly
+  - rb.gy
+  - rebrand.ly
+  - s.id
+  - shorte.st
+  - shorturl.at
+  - surl.li
+  - t.co
+  - t.ly
+  - tiny.cc
+  - tinyurl.com
+  - urlz.fr
+  suspicious_tlds:
+  - buzz
+  - cf
+  - cfd
+  - click
+  - club
+  - cyou
+  - fit
+  - ga
+  - gq
+  - icu
+  - link
+  - live
+  - lol
+  - ml
+  - monster
+  - online
+  - quest
+  - rest
+  - sbs
+  - shop
+  - site
+  - space
+  - tk
+  - top
+  - website
+  - work
+  - xyz
+  impersonated_brands:
+  - paytm
+  - phonepe
+  - gpay
+  - amazon
+  - flipkart
+  - netflix
+  - whatsapp
+  - facebook
+  - instagram
+  - sbi
+  - hdfc
+  - icici
+  - axis
+  - kotak
+  - paypal
+  - microsoft
+  - apple
+  - google
+  - irctc
+  - myntra
+  - meesho
+  - swiggy
+  - zomato
+  - jio
+  - airtel
+  - vodafone
+  - uidai
+  - epfo
+  - income-tax
+  legit_domain_hints:
+    paytm: paytm.com
+    phonepe: phonepe.com
+    amazon: amazon.in
+    flipkart: flipkart.com
+    netflix: netflix.com
+    whatsapp: whatsapp.com
+    sbi: onlinesbi.sbi
+    hdfc: hdfcbank.com
+    icici: icicibank.com
+    google: google.com
+    apple: apple.com
+    microsoft: microsoft.com
+    irctc: irctc.co.in
+    jio: jio.com
+derived_signals:
+  link_shortener:
+    label: Hides destination behind a link shortener
+    weight: 0.65
+  suspicious_tld:
+    label: Link uses a high-abuse domain ending
+    weight: 0.6
+  ip_link:
+    label: Link points at a raw IP address
+    weight: 0.9
+  lookalike_domain:
+    label: Look-alike domain impersonating a brand
+    weight: 0.95
+  upi_id:
+    label: Contains a UPI payment handle
+    weight: 0.7
+  bank_details:
+    label: Contains bank account / IFSC details
+    weight: 0.75
+  large_sum:
+    label: Mentions an unusually large sum of money
+    weight: 0.45
+  shouting:
+    label: Excessive capitalisation
+    weight: 0.35
+  hidden_chars:
+    label: Invisible characters used to evade filters
+    weight: 0.85
+  emoji_spam:
+    label: Emoji-heavy attention grabbing
+    weight: 0.25
+  callback_number:
+    label: Supplies a call-back number with an offer
+    weight: 0.5
+  homoglyph_spoof:
+    label: Look-alike characters from another script
+    weight: 0.95
+  brand_identity_claim:
+    label: Claims to represent a company while making a request
+    weight: 0.7
+  support_role_ask:
+    label: Claims a support role while requesting action
+    weight: 0.65
+  legitimacy_claim:
+    label: Unverifiable legitimacy claim alongside a payment ask
+    weight: 0.6
+  risky_link:
+    label: Link with strong deception indicators
+    weight: 0.9
+  dangerous_download:
+    label: Link points at an installable file
+    weight: 0.95
+  vouched_risky_link:
+    label: A trusted-sounding message pushing a deceptive link
+    weight: 0.9
+  ransom_payment:
+    label: Threat combined with an untraceable payment demand
+    weight: 1.0
+  course_upsell:
+    label: Earnings-promising course asking for a fee
+    weight: 0.8
+scoring:
+  saturation_rate: 0.55
+  strongest_floor: 0.75
+  discount_narrative_no_ask: 0.25
+  discount_safe_marker_no_ask: 0.45
+  discount_narrative_with_ask: 0.75
+  large_sum_min: 10000
+  caps_ratio_min: 0.45
+  caps_min_letters: 15
+  emoji_spam_min: 5
+  discount_self_inquiry: 0.2
+  entropy_url_min: 0.95
+  boost_unverified_business_claim: 0.15
+  discount_official_business: 0.55
+links:
+  safe_domains:
+  - amazon.in
+  - amazon.com
+  - flipkart.com
+  - myntra.com
+  - meesho.com
+  - ajio.com
+  - paytm.com
+  - phonepe.com
+  - google.com
+  - pay.google.com
+  - amazonpay.in
+  - netflix.com
+  - primevideo.com
+  - hotstar.com
+  - spotify.com
+  - sonyliv.com
+  - whatsapp.com
+  - facebook.com
+  - instagram.com
+  - linkedin.com
+  - x.com
+  - onlinesbi.sbi
+  - sbi.co.in
+  - hdfcbank.com
+  - icicibank.com
+  - axisbank.com
+  - kotak.com
+  - pnbindia.in
+  - bankofbaroda.in
+  - canarabank.com
+  - yesbank.in
+  - rbi.org.in
+  - npci.org.in
+  - uidai.gov.in
+  - incometax.gov.in
+  - epfindia.gov.in
+  - irctc.co.in
+  - indianrailways.gov.in
+  - india.gov.in
+  - mygov.in
+  - jio.com
+  - airtel.in
+  - myvi.in
+  - bsnl.co.in
+  - swiggy.com
+  - zomato.com
+  - uber.com
+  - olacabs.com
+  - bluedart.com
+  - dtdc.in
+  - fedex.com
+  - dhl.com
+  - delhivery.com
+  - indiapost.gov.in
+  - microsoft.com
+  - apple.com
+  - paypal.com
+  - github.com
+  - cloudflare.com
+  dangerous_extensions:
+  - apk
+  - exe
+  - scr
+  - msi
+  - bat
+  - cmd
+  - com
+  - pif
+  - jar
+  - vbs
+  - js
+  - ps1
+  - sh
+  - dmg
+  - iso
+  - img
+  - hta
+  - lnk
+  - reg
+  redirect_params:
+  - url
+  - redirect
+  - redirect_uri
+  - next
+  - target
+  - dest
+  - destination
+  - continue
+  - return
+  - returnurl
+  - r
+  - u
+  - link
+  - goto
+  - out
+  - forward
+  multi_label_suffixes:
+  - co.uk
+  - co.in
+  - co.jp
+  - co.kr
+  - co.nz
+  - co.za
+  - com.au
+  - com.br
+  - com.cn
+  - com.mx
+  - com.sg
+  - com.tr
+  - net.in
+  - org.in
+  - gov.in
+  - ac.in
+  - edu.in
+  - nic.in
+  - org.uk
+  - gov.uk
+  - ac.uk
+  scoring:
+    typosquat_max_distance: 2
+    max_subdomain_depth: 4
+    long_url_chars: 120

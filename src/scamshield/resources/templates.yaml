@@ -1,0 +1,744 @@
+# Corpus templates. {slots} are filled with randomised values at build time.
+# Add new scam wording here, then retrain - no code change required.
+# `scam_weights` multiplies how many samples a category generates.
+slots:
+  banks:
+  - SBI
+  - HDFC Bank
+  - ICICI Bank
+  - Axis Bank
+  - Kotak Bank
+  - PNB
+  - Bank of Baroda
+  - Yes Bank
+  - IndusInd Bank
+  - Canara Bank
+  wallets:
+  - Paytm
+  - PhonePe
+  - Google Pay
+  - Amazon Pay
+  - Mobikwik
+  - BHIM
+  ecommerce:
+  - Amazon
+  - Flipkart
+  - Myntra
+  - Meesho
+  - Ajio
+  - Nykaa
+  - Snapdeal
+  couriers:
+  - Blue Dart
+  - DTDC
+  - FedEx
+  - DHL
+  - India Post
+  - Delhivery
+  - Ekart
+  telcos:
+  - Jio
+  - Airtel
+  - Vi
+  - BSNL
+  streaming:
+  - Netflix
+  - Prime Video
+  - Hotstar
+  - Spotify
+  - SonyLIV
+  first_names:
+  - Rahul
+  - Priya
+  - Amit
+  - Sneha
+  - Vikram
+  - Anjali
+  - Arjun
+  - Divya
+  - Karthik
+  - Meera
+  - Rohan
+  - Nisha
+  - Sanjay
+  - Pooja
+  - Aditya
+  - Kavya
+  - Emily
+  - David
+  - Sophia
+  - Michael
+  - Grace
+  - Daniel
+  - Linda
+  - James
+  upi_suffixes:
+  - okaxis
+  - okhdfcbank
+  - oksbi
+  - paytm
+  - ybl
+  - apl
+  - upi
+  - ibl
+  scam_tlds:
+  - xyz
+  - top
+  - club
+  - icu
+  - buzz
+  - online
+  - site
+  - info
+  - link
+  - cfd
+  shorteners:
+  - bit.ly
+  - tinyurl.com
+  - cutt.ly
+  - rb.gy
+  - t.ly
+  - is.gd
+  - shorturl.at
+scam:
+  phishing_bank_kyc:
+  - 'Dear Customer, your {bank} account will be BLOCKED today as your KYC has expired. Update immediately: {url}'
+  - '{bank}: Your net banking has been suspended due to incomplete KYC. Complete verification within 24 hours {url}'
+  - URGENT! Your {bank} debit card will be deactivated tonight. Re-KYC here {url} or call {phone}
+  - Dear User, PAN card not linked with your {bank} account. Account freeze in 12 hrs. Link now {url}
+  - Your {bank} account shows suspicious login from another device. Verify your identity now {url}
+  - '{wallet} KYC pending. Your wallet balance of Rs {amt} will be frozen. Update KYC {url}'
+  - 'ATTENTION: As per RBI guidelines your {bank} account requires re-verification. Failing this account will be closed. {url}'
+  - Your {bank} internet banking password expires today. Reset immediately to avoid service interruption {url}
+  - Dear Sir/Madam, an amount of Rs {amt} is on hold in your {bank} account. Release it by verifying {url}
+  - '{bank} Alert: Your account has been temporarily locked. Unlock now {url} Reply STOP to opt out'
+  - Aapke {bank} account ki KYC pending hai. Aaj hi update kare warna account band ho jayega. {url}
+  - Dear customer aapka {telco} sim aaj band ho jayega. Verification ke liye is link par jaye {url}
+  - Sir aapke account me suspicious transaction hui hai. Turant verify kare {url} ya call kare {phone}
+  - आपका {bank} खाता बंद हो जाएगा। तुरंत KYC अपडेट करें {url}
+  - Dear valued client, our compliance team requires verification of your net banking credentials to complete the mandated
+    annual audit. {url}
+  - 'Good day. Your recent transaction of Rs {amt} has been flagged by our fraud prevention team. Verify your identity to
+    reverse it: {url}'
+  - We are updating our records. Kindly confirm the 16 digits on your card along with the validity date.
+  - Good afternoon. We noticed unusual activity on your card ending {num}. For your safety please confirm the last 3 digits
+    printed on the back so we can freeze it.
+  - Dear account holder, a standing instruction of Rs {amt} was set up today. If unauthorised, confirm your card details on
+    this line to cancel it.
+  - This is a courtesy call from the security desk of {bank}. To cancel the pending transfer we need the code sent to your
+    phone.
+  - Our system flagged a login from a new device. Please confirm your registered credentials so we can restore full access
+    to your account.
+  - As part of the RBI mandated review, kindly verify your debit card number and expiry with our officer. Your cooperation
+    is appreciated.
+  lottery_prize:
+  - Congratulations!!! You have WON Rs {amt} in the {brand} lucky draw. To claim send processing fee Rs {small} to {upi}
+  - Dear winner, your mobile number has been selected in KBC lottery. Prize Rs {amt}. Contact our manager on {phone}
+  - You are today's lucky winner of {brand} Spin & Win! Claim your cash prize {amt} here {url}
+  - CONGRATULATIONS! Your number won the {brand} anniversary bumper prize of Rs {amt}. Registration fee Rs {small} applicable.
+    {url}
+  - Hello! You have received a gift voucher worth Rs {amt} from {brand}. Claim before midnight {url}
+  - 'Winner announcement: Rs {amt} credited in your name. Pay GST charges of Rs {small} to {upi} to release funds.'
+  - Your WhatsApp number won in the {brand} global draw 2024! Send your bank details and Aadhaar to claim Rs {amt}
+  - Scratch card won! You got Rs {amt} cashback from {wallet}. Claim now {url} (expires in 2 hours)
+  - Aapka mobile number lucky draw me select hua hai. Rs {amt} ka inaam. Registration fee Rs {small} bhejein {upi}
+  - Your number won 2nd prize in our monthly draw! To transfer the amount we need a small tax clearance payment first.
+  - Get verified blue tick for your business page. Pay Rs {small} setup fee, activation within 24 hours. Limited offer.
+  job_task_scam:
+  - Hi, I am {name} from {brand} HR. We have a part time work from home job. Earn Rs {small} daily. No investment. Interested?
+    Reply YES
+  - Work from home opportunity! Just like and subscribe YouTube videos. Rs {small} per task. Join telegram {url}
+  - Dear candidate, your resume is shortlisted for online data entry job. Daily payout Rs {small}. Register here {url}
+  - Part-time job available. Give Google reviews for hotels, earn Rs 50 per review. Payment daily. WhatsApp {phone}
+  - Hiring urgently! Online typing job, flexible timing, weekly salary Rs {amt}. No experience required. Contact {phone}
+  - Congratulations {name}, you are selected for our prepaid task program. Complete task, get 30% commission instantly. Join
+    {url}
+  - 'Simple job: complete 5 tasks daily and earn Rs {small}. First deposit Rs {small} required as refundable security. {upi}'
+  - '{brand} is hiring work from home staff. Salary 25000-40000/month. Registration fee Rs {small} only. Apply {url}'
+  - Ghar baithe kaam kare, roz Rs {small} kamaye. Koi investment nahi. WhatsApp par message kare {phone}
+  - Complete these 3 easy tasks and receive your first payout today. Then unlock the premium tier with much higher commissions.
+    {url}
+  - We are recruiting for online product rating. Rate 20 items daily, earn Rs {small}. Joining free but a refundable deposit
+    secures your slot.
+  - Hi, I got your number from a hiring group. Are you looking for flexible remote work?
+  - We pay per completed task, and payouts are daily. Would you like to see the task list?
+  - Your first three tasks are free. After that you unlock the paid tier with a small deposit.
+  investment_crypto:
+  - Hi dear, I want to share my trading secret. I earn Rs {small} daily with guaranteed returns. Join my group {url}
+  - Double your money in 15 days! 100% risk free investment plan. Minimum Rs {small}. Contact {phone}
+  - Crypto signal group - 95% accuracy. Members made Rs {amt} last month. Free entry today only {url}
+  - Invest Rs {small} today and get assured returns of Rs {amt} in 30 days. Bank guaranteed. Limited slots! {url}
+  - Hello, I am a professional forex trader. I can manage your account and give you daily profit. No risk. DM me
+  - 'USDT trading opportunity! Deposit any amount, withdraw 3x within 7 days. Wallet: {upi}. Join {url}'
+  - Stock tips with guaranteed profit. Our clients earned {amt} this week. Free trial, join telegram {url}
+  - My uncle works in a fund and gives insider tips. I made Rs {amt} last month. Want me to add you?
+  - Hello, I represent an investment consultancy. Our managed portfolio returned 18% monthly for two years. May I share the
+    brochure?
+  - I started with just Rs {small} last month and withdrew Rs {amt} yesterday. My mentor still has 3 slots. Should I introduce
+    you?
+  - The platform is regulated and your capital is insured, so there is genuinely no downside. Deposit whenever you are comfortable.
+  - Join my VIP signals channel free for 3 days. Members typically make Rs {amt} a month. No experience needed. {url}
+  - Hi, I'm {name} from a portfolio advisory. I noticed your profile and thought you might be interested in steady weekly
+    income.
+  - Most people never learn how money actually grows. I can show you, no obligation.
+  - My clients average 12-18% monthly. I only take a small share of the profit.
+  - You do not need experience. I place the trades, you just fund the account.
+  - The first withdrawal is always smooth. That is how you know it is real.
+  - I am only taking 3 more people this month. After that the group closes.
+  otp_credential_theft:
+  - Hi, this is {name} from {bank} customer care. To process your request please share the OTP sent to your number.
+  - I have accidentally sent Rs {small} to your number. Please share the OTP you received so I can reverse it.
+  - '{wallet} support here. For refund verification, share the 6 digit code we just sent you.'
+  - Sir your cashback of Rs {small} is ready. Please tell me the OTP received on your mobile to credit it.
+  - To confirm your identity, kindly provide your card number, expiry date and CVV. This is a secure {bank} line.
+  - Your {brand} order is on hold. Confirm the verification code sent to your phone to release delivery.
+  - Dear customer, do not share this OTP with anyone... please forward it to this number for validation only.
+  - I am calling from {bank} fraud department. Someone is using your account. Quickly tell me your UPI PIN so I can block
+    it.
+  - Sir main {brand} delivery se bol raha hun, order confirm karne ke liye jo OTP aaya hai wo batayein
+  - Hello, this is the fraud prevention team at {bank}. To secure your account, please read out the code we sent to your registered
+    mobile.
+  - Aapka cashback ready hai, bas 6 digit code batao jo abhi aaya hai
+  - मुझे वो OTP बताइए जो अभी आपके फोन पर आया है, तभी पैसे वापस होंगे
+  - Share the OTP sent to your phone to verify your account
+  - Please send me the OTP you just received
+  - Kindly forward the verification code sent to your number
+  - Tell me the 6 digit code that came to your phone just now
+  - What is the OTP you received? I need it to complete the process
+  - Read out the code sent to your registered mobile number
+  - Confirm the code we sent so I can proceed with your request
+  - The OTP has been sent. Please share it here to continue
+  - Send the verification code to complete your KYC
+  - I need the OTP to reverse the transaction, please share quickly
+  - Please provide the one time password sent to your device
+  - Aapke phone par jo code aaya hai wo bhejiye
+  - OTP share kijiye taki verification complete ho sake
+  - Forward me the code, it is only for verification purposes
+  - To confirm your identity please type the OTP you received here
+  tech_support:
+  - 'WARNING: Your device is infected with 3 viruses. Install our security app immediately {url}'
+  - 'Microsoft Security Alert: malware detected on your computer. Call {phone} for immediate assistance.'
+  - Your {telco} SIM will be blocked in 2 hours due to verification failure. Download this APK to verify {url}
+  - Sir, to fix your issue please install AnyDesk and share the 9 digit code with me for remote access.
+  - Your Google account has been compromised. Our engineer will help, please download TeamViewer from {url}
+  - 'System alert: your phone storage is corrupted. Click here to repair {url}'
+  - Sir aapke computer me virus hai, hum help karenge. Bas ye app install karke 9 digit code batayein
+  - Your device has been exposed to a security threat. Our certified engineer can clean it remotely. Please install the support
+    tool we are sending. {url}
+  romance_pig_butchering:
+  - Hi, I got your number from a friend. You seem like a nice person, I would love to be your friend :)
+  - Good morning dear, did you sleep well? I was thinking about you all night. I feel we have a connection.
+  - My dear, I am a widow living abroad. My late husband left me {amt} and I need a trustworthy person to help me transfer
+    it.
+  - You are so beautiful. I want to build a future together. But first let me teach you how I earn money trading, join {url}
+  - Darling I am stuck at the airport and my card is blocked. Can you send Rs {small} to {upi}? I will return it tomorrow.
+  - I trust you completely. Let us keep our relationship private, don't tell your family yet. Send me a photo?
+  - Hello dear, I am an army officer posted overseas. I want to send you a gift parcel worth {amt}, just pay the customs fee.
+  - Hi love, I miss you so much. My project payment is delayed and I cannot pay the hotel. Could you help with Rs {amt} just
+    till Monday?
+  - Sweetheart I have opened a trading account in your name too. Just deposit a little and watch it grow like mine did.
+  - I am a solicitor handling a deceased estate. The beneficiary shares your surname. Reply privately and we can split the
+    proceeds discreetly.
+  - Hi! I'm {name}, financial analyst. I noticed your profile. I help beginners grow small capital into steady weekly income.
+    No risk on your side. Shall I show you my results?
+  - i have been watching your profile for long time. you seem genuine unlike others here. can we talk privately?
+  - Hello, I think we matched a while ago but I lost the chat. How have you been?
+  - You seem different from other people I meet here. I feel I can trust you.
+  - I don't usually message strangers, but something about your profile felt honest.
+  - Sorry if this is forward - I saw your photo and wanted to say hello. Are you from around here?
+  - I am {name}, {brand} consultant based in Singapore. Work keeps me busy but I get lonely sometimes.
+  - My schedule is hectic but I always make time for people who matter. Tell me about your day?
+  - I want to share something with you but you must promise not to tell anyone.
+  - Money is not everything, but security matters. I learned that after my divorce.
+  - You work so hard for so little. I wish I could show you what I do instead.
+  - I made Rs {amt} last quarter through my uncle's desk. It changed everything for me.
+  - Start small if you are unsure. Even Rs {small} is enough to see how it works.
+  - I would never suggest something risky to you. You matter to me.
+  - The withdrawal is processing, it just needs the account upgraded first. Trust me.
+  - Why are you doubting me now? After everything we have shared?
+  - Please, I would not ask if it was not urgent. I will pay you back double.
+  delivery_customs:
+  - '{courier}: Your parcel is held at customs. Pay clearance fee Rs {small} to release. {url}'
+  - Your {brand} order could not be delivered due to incomplete address. Update details {url}
+  - Dear customer, your shipment is pending. Delivery charges Rs {small} unpaid. Pay now to avoid return {url}
+  - '{courier} notice: package awaiting duty payment of Rs {small}. Pay to {upi} within 24 hours or parcel will be returned.'
+  - Your international parcel contains restricted items. Contact customs officer at {phone} immediately.
+  family_impersonation:
+  - Hi mum, this is my new number, my old phone broke. Can you save it? I need help with something urgent.
+  - Dad it's me, I lost my phone. I need to pay a bill of Rs {amt} today but my banking app is not working. Can you transfer
+    to {upi}?
+  - Hey it's {name}! New number. Listen, I'm in a bit of trouble and can't call right now. Can you send Rs {small}?
+  - Hi, I changed my number. Please delete the old one. Are you free? I need a small favour urgently.
+  - Mummy my phone is damaged, using friend's phone. Please send Rs {small} to {upi}, I will explain later. Don't call, I
+    can't talk.
+  - Beta main tumhare papa ka dost hun, unka accident ho gaya hai, turant Rs {small} is account me bhejo {upi}
+  - Hey, it's me. I dropped my phone in the sink so I'm on a temporary number. Are you around? I need a favour.
+  - Hi Dad, new number, save it. My banking is locked out and a supplier invoice is overdue. Can you pay it and I'll transfer
+    you tomorrow?
+  - Mom my phone fell in water, texting from a mate's. Can you move Rs {small} to this account, I'll sort it when I'm home.
+    Please don't ring.
+  - Mummy urgent hai, mera phone kharab ho gaya. Rs {small} is upi par bhej do {upi}, baad me bata dungi. Call mat karna
+  loan_offer:
+  - Instant personal loan up to Rs {amt} approved! No documents, no CIBIL check. Apply {url}
+  - Pre-approved loan of Rs {amt} in your name. Processing fee Rs {small} only. Transfer to {upi} to disburse.
+  - Get instant cash in 10 minutes. Loan without salary slip. WhatsApp {phone} now.
+  - Dear {name}, your loan of Rs {amt} is sanctioned. Pay insurance charge Rs {small} to activate {url}
+  - Congratulations you are pre-approved for Rs {amt} personal loan at 2% interest, no documents needed. Pay the file charge
+    Rs {small} to activate.
+  - Bhai mera account block ho gaya hai, tu apne account me paisa mangwa le, main tujhe commission dunga. Bilkul safe hai
+  refund_overpayment:
+  - Your {brand} refund of Rs {small} failed. Update your bank details here to receive it {url}
+  - 'Income Tax Department: You have a refund of Rs {amt} pending. Submit account details {url}'
+  - '{telco} recharge failed, refund of Rs {small} initiated. Click to claim within 6 hours {url}'
+  - We overpaid you by Rs {small} by mistake. Please return the excess to {upi} immediately.
+  - Your electricity bill payment failed. Connection will be disconnected tonight at 9:30 PM. Call officer {phone}
+  - Sir apka refund Rs {small} ka fail ho gaya. Neeche diye link par bank detail update kare {url}
+  - Dear customer aapka electricity connection aaj raat disconnect hoga. Bill update karne ke liye ye app download kare {url}
+  - You have an unclaimed refund from a cancelled booking. Submit your bank account and IFSC on the form to receive Rs {small}.
+    {url}
+  charity_fraud:
+  - Please help! A child needs urgent surgery costing Rs {amt}. Even Rs {small} helps. Donate to {upi}. God bless you.
+  - Flood relief fund - we are collecting for affected families. Any amount to {upi}. Forward to 10 people.
+  - 'URGENT: my friend needs blood and money for operation. Please contribute {upi}. Share widely!'
+  digital_arrest:
+  - Turant is number par call kare {phone}, aapke naam par cyber crime case darj hua hai. Case no CBI/2024/{num}
+  - Madam we are from cyber cell. A case is registered against your Aadhaar for money laundering. Do not disclose to anyone
+    or arrest warrant will be issued.
+  - Your Aadhaar has been linked to a suspicious bank account. Digital arrest procedure is being initiated. Stay on this call.
+  - Sir aapke parcel me drugs mile hain. Customs aur police involved hai. Investigation confidential hai, kisi ko mat batana.
+    Call {phone}
+  - This is an official notice from the Narcotics Bureau. Your identity was used in a trafficking case. Cooperate on this
+    call to avoid immediate arrest.
+  business_impersonation:
+  - Hi, I am from {brand} customer care. There is an issue with your recent order, share the OTP to verify
+  - This is {brand} support team. Your account will be suspended today. Confirm your card number and expiry
+  - '{brand} verification department here. To release your refund of Rs {small}, confirm your UPI PIN'
+  - Hello, I am the relationship manager from {bank}. Your account needs re-verification, share the code sent to you
+  - '{brand} official seller. Pay advance of Rs {small} to {upi} to confirm your booking, balance on delivery'
+  - We are an authorised dealer of {brand}. Wholesale rates available, advance payment only. Interested?
+  - This is the fraud prevention team at {bank}. Read out the OTP so we can block the unauthorised transaction
+  - '{brand} billing department. Your subscription payment failed, update your card here {url}'
+  - Namaste, main {bank} se bol raha hun. Aapka account block ho jayega, OTP batayein
+  - '{brand} helpline. Your parcel is stuck, pay clearance charge Rs {small} to {upi} for release'
+  - Hi, I am the account manager for {brand} sellers. Register your shop by paying Rs {small} onboarding fee {url}
+  - GST registered trusted seller here. iPhone at wholesale rate Rs {small}. Advance payment only, no COD
+  - '{brand} security team. Suspicious login detected. Verify your identity at {url} within 2 hours'
+  - We are contacting you on behalf of {wallet}. Your KYC is pending, complete it here {url}
+  - '{brand} customer service. To process your refund we need your account number and IFSC code'
+  course_mentorship_scam:
+  - My mentorship batch closes tonight. 3 students crossed Rs 1 lakh last month. Lifetime access for Rs {small} only
+  - Join my free demo class on stock trading. Learn to earn Rs {small} daily without any degree
+  - Fees increase to Rs {amt} next week. Enroll now and get the recorded masterclass free
+  - I quit my 9 to 5 two years ago. Now I teach others the same roadmap. DM me for details
+  - Only 5 seats left in the September batch. Early bird price Rs {small}, then it doubles
+  - My student {name} made Rs {amt} in her first month. Want the same roadmap?
+  - 'Free webinar this Sunday: how to build passive income with zero investment. Register {url}'
+  - Learn dropshipping and earn from day one. No experience needed. Course fee Rs {small}
+  - Crypto trading course with lifetime access and daily signals. Limited seats {url}
+  - Financial freedom is a skill. I teach it in 30 days. Money back guarantee. Rs {small}
+  - Stop working for money. Let money work for you. Join my batch {url}
+  - Affiliate mastery program - my students earn 6 figures. Enrollment closes at midnight
+  - Forex course with guaranteed placement in our trading desk. Registration Rs {small} to {upi}
+  - Become your own boss. Learn, earn, repeat. Free demo class today at 8pm, link {url}
+  - This is not a course, it is a shortcut. Rs {small} today, lakhs tomorrow. Interested?
+  - Batch starting Monday. Pay the fee to {upi} and I will add you to the private group
+  - I was in debt 3 years ago. Now I teach {num} students. Your turn - DM me
+  - Learn to earn while you sleep. Recorded sessions + 1:1 mentorship. Rs {small} only
+  extortion_ransom:
+  - I recorded you through your webcam. Pay Rs {amt} in bitcoin within 48 hours or I send the video to all your contacts
+  - I have access to your device and I have your private video. Transfer {small} USD in BTC or your family will see it
+  - All your files have been encrypted. Send 0.5 BTC to this wallet for the decryption key
+  - Your data is encrypted. Pay the ransom within 24 hours or we leak your documents online
+  - We have your son. Do not call the police. Arrange Rs {amt} cash and wait for instructions
+  - I hacked your account and downloaded everything. Rs {amt} in crypto keeps it private
+  - I have your intimate photos. Do not tell anyone or I post them online. Pay to this wallet
+  - This is your last warning. Pay in bitcoin or I share it with your friends and colleagues
+  - Your webcam footage is with me. I will delete everything after payment of Rs {amt}
+  - Your child is with us. No police. Arrange the cash today and stay on this number
+  - I installed a trojan on your phone. All contacts, photos and messages are mine. Pay {small} USD
+  - Send the payment in USDT within 24 hours or your reputation is finished
+  - We have encrypted your company files. Contact us for the decryption key. Do not involve authorities
+  - Someone paid me to ruin your reputation. Pay me more and I will not do it. Bitcoin only
+  - I know your password is not safe. I have the recording. Rs {amt} and I delete it forever
+  trusted_contact_link:
+  - Hey its me, is this you in this video? {url}
+  - bro check this out, i made Rs {amt} with this app {url}
+  - Please vote for my niece in this contest, takes 2 seconds {url}
+  - Look what I found, your photo is on this site {url}
+  - You have to see this, I could not believe it {url}
+  - Someone posted about you here, have a look {url}
+  - I already tried it and it worked. Install this app and see {url}
+  - Help me win this competition, just one click {url}
+  - Shocking video, is this really you? {url}
+  - Trust me on this one, it paid me Rs {small} yesterday {url}
+  - This is my new number, check the link I sent you earlier {url}
+  - Forward this to 10 friends to unlock the reward {url}
+  - hey! long time. saw this and thought of you {url}
+  - my friend got Rs {small} from this, try it {url}
+  - Urgent - open this before it expires {url}
+ham:
+  casual:
+    weight: 1.0
+    messages:
+    - hey are we still on for lunch tomorrow?
+    - haha that's so true 😂
+    - ok cool see you then
+    - I'm running 10 mins late, sorry!
+    - did you watch the match last night?
+    - can you send me that photo from the trip?
+    - good morning! how did the interview go?
+    - let's catch up this weekend
+    - I'm at the station, where are you?
+    - thanks so much for yesterday, really appreciated it
+    - sorry just saw this, been swamped all day
+    - call me when you're free
+    - yeah I'll be there by 7
+    - no worries, take your time
+    - happy birthday!! have an amazing day 🎉
+    - what time does the movie start?
+    - I think I left my charger at your place
+    - the food was amazing, thanks for the recommendation
+    - are you coming to the party on saturday?
+    - just landed, will call you in a bit
+    - my flight got delayed by 2 hours ugh
+    - can we reschedule to next week?
+    - she said yes!!! 😍
+    - I'm so tired today, barely slept
+    - send me the address please
+    - did you get home safe?
+    - let me know once you reach
+    - I'll pick up the groceries on my way
+    - that restaurant was overpriced honestly
+    - we should plan a trip in december
+  work:
+    weight: 0.8
+    messages:
+    - I've pushed the changes to the dev branch, can you review?
+    - the client meeting is moved to 3pm tomorrow
+    - please find the updated deck attached
+    - can you share the invoice for last month?
+    - standup is at 9:30, don't forget
+    - I'll send the report by EOD today
+    - the deployment went through, all tests passing
+    - we need to finalise the budget before friday
+    - can someone take notes in today's sync?
+    - I'm on leave next monday, please loop in Priya
+    - the server was down for 20 mins, it's back up now
+    - great work on the presentation today team
+    - let's move this discussion to the call
+    - I've added my comments on the doc
+    - 'reminder: timesheets are due tonight'
+    - the vendor quoted 45000 for the annual license, seems reasonable
+    - HR said the appraisal cycle starts next month
+  family:
+    weight: 0.7
+    messages:
+    - beta have you eaten?
+    - reaching home by 8, don't wait for dinner
+    - please buy milk and bread on the way back
+    - your father is not feeling well, doctor appointment tomorrow at 11
+    - the electrician is coming at 4, someone should be home
+    - I've sent you 5000 for the hostel fees, check your account
+    - dadi is asking when you're visiting next
+    - don't forget to take your medicine
+    - we're leaving for the wedding at 6am, be ready
+    - call your mother, she's been trying to reach you
+  legit_transactional:
+    weight: 2.2
+    messages:
+    - Rs 2,499.00 debited from A/c XX4471 on 12-03 to VPA swiggy@ybl. Not you? Call 18001234567. -{bank}
+    - Your OTP for {bank} net banking is 883021. Valid for 10 minutes. Do NOT share it with anyone, including bank staff.
+    - Dear Customer, your {telco} plan of Rs 299 has been activated. Validity 28 days. Enjoy!
+    - '{brand} order #40382 has been shipped and will arrive tomorrow by 7 PM. Track: https://www.{brandlower}.in/orders'
+    - '{courier} update: your shipment AWB 7728104 is out for delivery today.'
+    - Payment of Rs 1,200 received from {name}. Balance updated in your {wallet} wallet.
+    - Your {stream} subscription renews on 4 April for Rs 649. Manage at https://www.{streamlower}.com/account
+    - hey can you send me 500 on gpay? I'll return it on friday, forgot my wallet at home
+    - I'll transfer the rent to your account tonight, send me your UPI id again
+    - the total came to 3200, so your share is 1600. paytm or gpay whichever is easier
+    - Congratulations on the new job!! so happy for you 🎉 when do you start?
+    - congratulations!!! you finally did it 😭❤️
+    - urgent - can you call me when you get this? nothing serious but need to discuss something
+    - this is urgent, the deadline got moved to tomorrow morning. can you finish the slides tonight?
+    - I won the office raffle lol, got a 500 rupee coffee voucher
+    - 'Reminder: your appointment with Dr. Mehta is tomorrow at 5:30 PM. Reply CANCEL to cancel.'
+    - Your electricity bill of Rs 1,840 is due on 15th. Pay via the official {telco} app to avoid late fee.
+    - I got a message saying my KYC expired, is that real? I didn't click anything
+    - someone tried to scam me today saying I won a lottery, I just blocked them
+    - please share your account number, I need to send you the refund for the tickets
+    - Team, please complete the mandatory compliance training by Friday. Link on the intranet.
+    - The investment seminar at the college is on Tuesday, professor said attendance is optional
+    - I'm thinking of investing in an index fund, do you have any recommendations?
+    - my new number, please save it - old sim got deactivated. this is {name} btw
+    - Hi, this is {name} from the interior design studio, following up on the quote we discussed last week.
+    - Your table for 4 at Toscano is confirmed for 8 PM. Call 08041234567 to modify.
+    - Verification code 449182 for your login. If this wasn't you, secure your account.
+    - Free delivery on orders above 499 this weekend at our store, no code needed
+    - Can you pay the 2500 to the caterer today? I'll settle with you later
+    - the school fee is 45000 this term, due by the 20th
+    - '{brand}: Your package with the headphones was delivered to the security desk.'
+    - '{brand}: Your order has been handed to the building reception.'
+    - '{courier}: Delivery attempted, no one available. We will retry tomorrow.'
+    - Free cancellation available till 24 hours before check-in. - Booking confirmation, Taj Resorts
+    - Your booking at Lemon Tree is confirmed for 3 nights from 12 April. Reference LT88213.
+    - Sir, your car service is complete. Total bill Rs 8,450. You can pay at the counter when you collect.
+    - Your laptop repair is done. Please collect between 11am and 7pm, invoice at the desk.
+    - Your appointment with Dr. Nair is confirmed for Tuesday 5:30 PM at the Indiranagar clinic.
+    - Your flight 6E-2043 is delayed by 45 minutes. New departure 18:35. - IndiGo
+    - Your train PNR 8842019 is confirmed, coach B4 seat 22. - IRCTC
+    - Your {stream} subscription renews on the 4th for Rs 649. Manage in account settings.
+    - Table for 4 confirmed at 8:30 PM. Call the restaurant to modify.
+    - Your {telco} bill of Rs 1,049 is generated. Due 18th. Pay in the app.
+    - Maintenance for the society is Rs 4,500 this quarter, payable to the association account.
+    - Your policy renewal premium is Rs 24,600, due on the 28th. Renew through the official portal.
+    - Your {brand} return has been picked up. Refund will reflect in 3-5 working days.
+    - EMI of Rs 18,450 for your home loan will be auto-debited on the 5th. - {bank}
+    - Your report is ready for collection at the lab between 10am and 6pm.
+    - 'Order #40382 shipped, arriving tomorrow by 7 PM.'
+    - Your gas cylinder booking is confirmed, delivery within 2 days.
+  casual_hinglish:
+    weight: 1.6
+    messages:
+    - beta ghar kab aa rahe ho? maa khana bana rahi hai
+    - papa ne paise bhej diye hain fees ke liye, check kar lena
+    - arre yaar us number se phir call aaya, keh raha tha bank se hun. maine block kar diya
+    - bank se message aaya tha ki KYC update karo, maine branch jaake karwa liya
+    - kal milte hai 6 baje, wahi jagah
+    - khana kha liya? main thoda late aaunga aaj
+    - wo lottery wala message fake tha, maine delete kar diya
+    - mummy ko bata dena main kal aa raha hun
+    - yaar wo forward mat karna, fraud hai
+    - aaj traffic bahut hai, 20 minute late ho jaunga
+  scam_discussion:
+    weight: 2.4
+    messages:
+    - someone called claiming to be from the bank asking for my otp, I disconnected immediately
+    - I got a message saying I won 25 lakh from a lucky draw, obviously fake right?
+    - that WhatsApp forward about the free recharge is fake, don't click it
+    - my cousin lost 40k in a crypto thing that turned out to be a scam
+    - beware of the number ending 4471, it's a fraud calling about KYC
+    - I'm not comfortable sharing my card details over chat, let's do it on the official site
+    - the police put out an advisory about digital arrest scams, please tell dadi
+    - watch out for messages asking you to install anydesk, it's a scam
+    - someone tried the parcel customs trick on me today, I just blocked them
+    - please never share your otp with anyone, not even someone claiming to be from the bank
+  urgent_genuine:
+    weight: 2.4
+    messages:
+    - 'URGENT: dad has been admitted to Manipal, please come as soon as you can'
+    - please call me back urgently, mom fell in the bathroom and we are at the hospital
+    - emergency at home, I won't make it to the office today
+    - come fast, the water tank is overflowing and I can't reach the switch
+    - urgent - the client escalated, we need the fix deployed tonight
+    - This is really urgent, the audit team needs the reconciliation by 6pm today
+    - papa ki tabiyat kharab hai, hospital ja rahe hain, jaldi aao
+    - need you on the call right now, the server is down in production
+    - please respond asap, the visa appointment slot expires in 2 hours
+    - 'URGENT: school called, you need to pick up the kids early today'
+  financial_legit:
+    weight: 2.4
+    messages:
+    - Can you share your account number and IFSC? Finance needs it to process your reimbursement.
+    - Please send your bank details so HR can set up the salary transfer.
+    - I'll transfer the rent tonight, send me your UPI id again
+    - send your account number, I'll courier the cheque otherwise
+    - Can you please share your PAN? HR needs it for Form 16 generation.
+    - the total is 3,200 so your share is 1,600, gpay whenever
+    - Guys the caterer wants 50% advance, that's 35,000. Should we split it now?
+    - papa ne 25000 bhej diye hain fees ke liye, check kar lena
+    - I've sent you 5,000 for the hostel fees, check your account
+    - hey did you get the money I sent? gpay says successful
+    - the school fee is 45,000 this term, due by the 20th
+    - Please transfer my share of the electricity bill, it's 1,150 this month.
+  short_reply:
+    weight: 2.0
+    messages:
+    - hi
+    - hello
+    - hey
+    - hi there
+    - hello?
+    - hey!
+    - hi 🙂
+    - heyy
+    - good morning
+    - good evening
+    - gm
+    - gn
+    - hi how are you
+    - hello, is this Meera?
+    - hi, is this the right number?
+    - hey, you there?
+    - hope you had a good day
+    - how was your day?
+    - long time no talk
+    - sorry to message out of the blue
+    - I got your number from a friend
+    - nice to hear from you
+    - how have you been?
+    - what's up
+    - ok
+    - okay
+    - 'yes'
+    - 'no'
+    - sure
+    - thanks
+    - thank you
+    - got it
+    - done
+    - hmm
+    - really?
+    - why?
+    - when?
+    - where?
+    - how much?
+    - what happened?
+    - who is this?
+    - sorry who is this
+    - do I know you?
+    - who gave you my number?
+    - I don't know you
+    - please stop messaging me
+    - not interested
+    - stop calling me
+    - what do you mean?
+    - I don't understand
+    - let me think about it
+    - maybe later
+    - I'll check and let you know
+    - sounds good
+    - no problem
+    - will do
+    - on my way
+    - reached
+    - just reached home
+    - call me
+    - call me when free
+    - sorry busy right now
+    - in a meeting
+    - talk later
+    - good night
+    - good morning
+    - see you tomorrow
+    - thanks a lot 🙏
+    - haha
+    - lol
+    - ok fine
+    - alright
+    - I want to withdraw it
+    - how does it work?
+    - is this real?
+    - are you sure?
+    - why do you need my OTP?
+    - why do you need my account number?
+    - I deposited the money yesterday
+    - the dashboard shows the amount
+    - I'll transfer tomorrow
+    - send me the details
+    - please send the address
+    - yes I did
+    - no I didn't
+    - not yet
+    - already done
+    - let me see
+    - that's great
+    - congrats
+    - oh okay
+    - nice to hear from you
+    - how are you?
+    - I'm fine
+    - busy with work as usual
+    - it's going fine
+    - that sounds too good honestly
+    - I had a look
+  legit_business:
+    weight: 2.4
+    messages:
+    - Hi! This is Riya from Bloom Cafe. Your table for 4 is confirmed for 8:00 PM today.
+    - '{brand}: Your order has been shipped and will arrive tomorrow by 7 PM.'
+    - Thank you for shopping with us! Your invoice is attached. Reply HELP for assistance.
+    - This is Dr. Mehta's clinic. Your appointment is confirmed for Tuesday 5:30 PM.
+    - Your service request has been logged. Our technician will visit between 10 AM and 12 PM.
+    - '{courier}: Your shipment is out for delivery today. Track in the app.'
+    - Hello from Sunrise Interiors! Sharing the revised quotation as discussed. Let us know your thoughts.
+    - Your table booking is confirmed. Please arrive 10 minutes early. Call us to modify.
+    - Thanks for your order! Payment received. Your bill is available in the app.
+    - This is Anil from the AC service centre. Our engineer will reach by 3 PM today.
+    - Your prescription is ready for pickup at the pharmacy counter till 9 PM.
+    - Good morning! Today's specials are on our catalogue. Order before 11 AM for lunch delivery.
+    - Your gym membership renews on the 5th. Visit the front desk for any changes.
+    - '{brand}: Your return has been picked up. Refund reflects in 3-5 working days.'
+    - Hello, this is Meera from the tailoring shop. Your order is ready for trial.
+    - Your car is ready for collection. Total bill Rs 8,450, payable at the counter.
+    - Thank you for visiting! We'd love your feedback. Reply STOP to opt out of updates.
+    - Your booking reference is BK88213. Free cancellation up to 24 hours before.
+    - This is the school office. Parent-teacher meeting is on Saturday at 10 AM.
+    - Your laptop repair is complete. Please collect between 11 AM and 7 PM with the receipt.
+  legit_otp:
+    weight: 2.0
+    messages:
+    - '{bank}: Your OTP is 481920. Valid for 10 minutes. Do not share it with anyone.'
+    - 482910 is your verification code. Never share this code.
+    - Your one time password is 774512. It expires in 5 minutes.
+    - OTP for your {brand} login is 220481. Do not share.
+    - Use 903112 to verify your number. This code is confidential.
+    - '{wallet}: 552104 is your login OTP. We never call to ask for it.'
+    - Your transaction OTP is 118824. Valid for one attempt only.
+    - 'Security code: 447120. If you did not request this, ignore this message.'
+    - 441022 is your {telco} account verification code.
+    - Your OTP is 660914. {bank} never asks for OTP over call or chat.
+  legit_education:
+    weight: 2.2
+    messages:
+    - Your Coursera course 'Machine Learning' starts Monday. First assignment is due on the 14th.
+    - NPTEL registration for the January semester closes on the 15th. Certificates are optional.
+    - Batch timings have changed to 6 PM from next week. - Sunrise Tutorials
+    - 'Reminder: your IELTS coaching class is tomorrow at 7 AM. Please bring the workbook.'
+    - The college has scheduled a placement training workshop on Friday. Attendance is optional.
+    - Your enrolment in the Data Science diploma is confirmed. Fee receipt attached.
+    - Guest lecture on renewable energy this Thursday, 3 PM, Seminar Hall B. All welcome.
+    - Your library book is due on the 20th. Renew online to avoid a late fee.
+    - Exam timetable is published on the portal. Please check your roll number.
+    - The photography workshop has 4 spots left. It is Rs 1,200 for the full day, materials included.
+    - Tuition fee for this term is Rs 18,000, payable at the school office by the 10th.
+    - Congratulations on completing the course! Your certificate is available for download.
+  legit_security_notice:
+    weight: 2.2
+    messages:
+    - Your password was changed successfully. If this was not you, reset it from the app.
+    - We detected a new sign-in to your account from Chrome on Windows. Review it in settings.
+    - Your account recovery email has been updated. Contact support if you did not do this.
+    - Two-factor authentication is now enabled on your account.
+    - A data breach at a third-party service may have exposed your email. We recommend a password change.
+    - Your session on another device has been signed out as requested.
+    - Your backup completed successfully. 4.2 GB stored.
+    - Antivirus scan finished. No threats found on your device.
+  legit_shared_link:
+    weight: 2.6
+    messages:
+    - here's the recipe I mentioned https://www.example-recipes.com/paneer-tikka
+    - the article is here if you want to read it https://www.thehindu.com/opinion
+    - photos from the trip are in this drive folder, download whenever
+    - check this out, the new season trailer just dropped https://www.youtube.com/watch
+    - this is the flat I was talking about, 2BHK near the metro
+    - sending you the meeting notes link, comments are open
+    - found a good deal on that laptop, sharing the link
+    - look at this cat video 😂 it made my day
+    - the form for the reunion is here, fill it when free
+    - here is the tracking link for your parcel from the courier app
+    - shared the playlist with you on Spotify
+    - this is the restaurant menu, tell me what you want
+    - have a look at the draft when you get a chance, link in the email
+    - the registration page is live now if you still want to sign up
+scam_weights:
+  romance_pig_butchering: 3.0
+  investment_crypto: 2.5
+  job_task_scam: 2.0
+  family_impersonation: 2.0
+  business_impersonation: 1.5
+  digital_arrest: 1.5
+  otp_credential_theft: 3.0
+  phishing_bank_kyc: 1.5
+  course_mentorship_scam: 2.0
+  extortion_ransom: 2.0
+  trusted_contact_link: 2.5

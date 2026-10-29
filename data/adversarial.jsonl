@@ -1,0 +1,40 @@
+{"text": "Dear Customer, your SBI KYC has expired. Account will be blocked today. Update now", "label": 1, "attack": "none"}
+{"text": "Dear Customer, your SBI KYC hаs expired. Account will be blocked tоdаy. Updаte now", "label": 1, "attack": "homoglyph"}
+{"text": "Dear Customer, your SBI ​KYC has expired. Account will be blo​cked ​today. Update​ now", "label": 1, "attack": "zero_width"}
+{"text": "Ｄｅａｒ Ｃｕｓｔｏｍｅｒ， ｙｏｕｒ ＳＢＩ ＫＹＣ ｈａｓ ｅｘｐｉｒｅｄ． Ａｃｃｏｕｎｔ ｗｉｌｌ ｂｅ ｂｌｏｃｋｅｄ ｔｏｄａｙ． Ｕｐｄａｔｅ ｎｏｗ", "label": 1, "attack": "fullwidth"}
+{"text": "Dear Customer​, your SBі ​KYC has expired. аccount will be blocked tоday. Update ​now", "label": 1, "attack": "combined"}
+{"text": "Please share the OTP that was just sent to your phone to verify your account", "label": 1, "attack": "none"}
+{"text": "Pleаse ѕhare the OTP that was just sent to your phone to verіfy yоur account", "label": 1, "attack": "homoglyph"}
+{"text": "Pl​ease s​hare the OTP ​that was just sent to your phone to verify yo​ur account", "label": 1, "attack": "zero_width"}
+{"text": "Ｐｌｅａｓｅ ｓｈａｒｅ ｔｈｅ ＯＴＰ ｔｈａｔ ｗａｓ ｊｕｓｔ ｓｅｎｔ ｔｏ ｙｏｕｒ ｐｈｏｎｅ ｔｏ ｖｅｒｉｆｙ ｙｏｕｒ ａｃｃｏｕｎｔ", "label": 1, "attack": "fullwidth"}
+{"text": "Plеas​e s​hare the OTP th​at was just ѕent to your phone to verify your аccount", "label": 1, "attack": "combined"}
+{"text": "Congratulations! You have won Rs 25,00,000 in the lucky draw. Pay the processing fee to claim", "label": 1, "attack": "none"}
+{"text": "Congratulations! You have won Rѕ 25,00,000 in the lucky draw. Paу the processіng fee to clаim", "label": 1, "attack": "homoglyph"}
+{"text": "Congratulations! You have won ​Rs 25,0​0,000 in the lucky draw. ​Pay the processing ​fee to claim", "label": 1, "attack": "zero_width"}
+{"text": "Ｃｏｎｇｒａｔｕｌａｔｉｏｎｓ！ Ｙｏｕ ｈａｖｅ ｗｏｎ Ｒｓ ２５，００，０００ ｉｎ ｔｈｅ ｌｕｃｋｙ ｄｒａｗ． Ｐａｙ ｔｈｅ ｐｒｏｃｅｓｓｉｎｇ ｆｅｅ ｔｏ ｃｌａｉｍ", "label": 1, "attack": "fullwidth"}
+{"text": "C​ongratula​tions! You have won Rs 25,00,000 in the lucky drаw. Pay the proceѕsing fеe​ to claim", "label": 1, "attack": "combined"}
+{"text": "Your parcel is held at customs. Pay the clearance fee to release it immediately", "label": 1, "attack": "none"}
+{"text": "Your parcеl is held at customs. Paу the cleаrance fee to release it immedіately", "label": 1, "attack": "homoglyph"}
+{"text": "Your​ parcel is held at customs​. Pay ​the clearance fee to release ​it immediately", "label": 1, "attack": "zero_width"}
+{"text": "Ｙｏｕｒ ｐａｒｃｅｌ ｉｓ ｈｅｌｄ ａｔ ｃｕｓｔｏｍｓ． Ｐａｙ ｔｈｅ ｃｌｅａｒａｎｃｅ ｆｅｅ ｔｏ ｒｅｌｅａｓｅ ｉｔ ｉｍｍｅｄｉａｔｅｌｙ", "label": 1, "attack": "fullwidth"}
+{"text": "Your parc​el і​s held at customs. Pay the сlearance feе to release it imme​diately", "label": 1, "attack": "combined"}
+{"text": "Work from home! Earn Rs 2000 daily, no investment needed. Join now", "label": 1, "attack": "none"}
+{"text": "Wоrk from hоme! Earn Rs 2000 daily, no invеstment needed. Jоin now", "label": 1, "attack": "homoglyph"}
+{"text": "Work fr​om home! Earn Rs 200​0​ daily, no investment needed. ​Join now", "label": 1, "attack": "zero_width"}
+{"text": "Ｗｏｒｋ ｆｒｏｍ ｈｏｍｅ！ Ｅａｒｎ Ｒｓ ２０００ ｄａｉｌｙ， ｎｏ ｉｎｖｅｓｔｍｅｎｔ ｎｅｅｄｅｄ． Ｊｏｉｎ ｎｏｗ", "label": 1, "attack": "fullwidth"}
+{"text": "Work from hоme! Earn Rѕ 2000 daily, no investment​ ​ne​eded. Jоin now", "label": 1, "attack": "combined"}
+{"text": "Your account has been suspended. Verify your identity to restore access", "label": 1, "attack": "none"}
+{"text": "Your accоunt has been suspended. Verifу yоur idеntity to restore access", "label": 1, "attack": "homoglyph"}
+{"text": "Yo​ur account ha​s been suspended. Verify you​r identi​ty to restore access", "label": 1, "attack": "zero_width"}
+{"text": "Ｙｏｕｒ ａｃｃｏｕｎｔ ｈａｓ ｂｅｅｎ ｓｕｓｐｅｎｄｅｄ． Ｖｅｒｉｆｙ ｙｏｕｒ ｉｄｅｎｔｉｔｙ ｔｏ ｒｅｓｔｏｒｅ ａｃｃｅｓｓ", "label": 1, "attack": "fullwidth"}
+{"text": "уour aсcount ​has b​een suspended​. Verify your identity to restore аccess", "label": 1, "attack": "combined"}
+{"text": "This is the fraud prevention team. Read out the code we sent to your registered mobile", "label": 1, "attack": "none"}
+{"text": "This is the fraud prevention tеаm. Read out the code we sent to your regiѕtered mоbile", "label": 1, "attack": "homoglyph"}
+{"text": "This is the fraud​ prevent​ion team. Read out the code​ we sent to yo​ur registered mobile", "label": 1, "attack": "zero_width"}
+{"text": "Ｔｈｉｓ ｉｓ ｔｈｅ ｆｒａｕｄ ｐｒｅｖｅｎｔｉｏｎ ｔｅａｍ． Ｒｅａｄ ｏｕｔ ｔｈｅ ｃｏｄｅ ｗｅ ｓｅｎｔ ｔｏ ｙｏｕｒ ｒｅｇｉｓｔｅｒｅｄ ｍｏｂｉｌｅ", "label": 1, "attack": "fullwidth"}
+{"text": "This is the fra​ud prevention team. Rеad out the co​de we sent to yоur rеgistered mob​ile", "label": 1, "attack": "combined"}
+{"text": "Instant loan approved. Pay the file charge to activate the disbursement", "label": 1, "attack": "none"}
+{"text": "іnstant loan apprоved. Pay the file charge to activate thе diѕbursement", "label": 1, "attack": "homoglyph"}
+{"text": "Ins​tant loan approved. ​Pay​ the file cha​rge to activate the disbursement", "label": 1, "attack": "zero_width"}
+{"text": "Ｉｎｓｔａｎｔ ｌｏａｎ ａｐｐｒｏｖｅｄ． Ｐａｙ ｔｈｅ ｆｉｌｅ ｃｈａｒｇｅ ｔｏ ａｃｔｉｖａｔｅ ｔｈｅ ｄｉｓｂｕｒｓｅｍｅｎｔ", "label": 1, "attack": "fullwidth"}
+{"text": "Instan​t loаn ​aрproved. Pay the fіle charge to activ​ate the disbursement", "label": 1, "attack": "combined"}
